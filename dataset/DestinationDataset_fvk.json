@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDataset_fvk",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Development-storage-connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "dasdasdasd"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
