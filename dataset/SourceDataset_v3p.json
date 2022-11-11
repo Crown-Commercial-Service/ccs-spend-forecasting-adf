@@ -1,0 +1,85 @@
+{
+	"name": "SourceDataset_v3p",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Development-sql-connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "SalesforceID",
+				"type": "varchar"
+			},
+			{
+				"name": "CustomerKey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CustomerName",
+				"type": "varchar"
+			},
+			{
+				"name": "ParentSalesforceID",
+				"type": "varchar"
+			},
+			{
+				"name": "ParentCustomerKey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Status",
+				"type": "varchar"
+			},
+			{
+				"name": "StatusKey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NUTSRegion",
+				"type": "varchar"
+			},
+			{
+				"name": "NUTSRegion2",
+				"type": "varchar"
+			},
+			{
+				"name": "Sector",
+				"type": "varchar"
+			},
+			{
+				"name": "Group",
+				"type": "varchar"
+			},
+			{
+				"name": "PrimaryFunction",
+				"type": "varchar"
+			},
+			{
+				"name": "Detail",
+				"type": "varchar"
+			},
+			{
+				"name": "ReplacementCustomerKey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MarketSector",
+				"type": "varchar"
+			},
+			{
+				"name": "MarketSubSector",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Customers"
+		}
+	}
+}
