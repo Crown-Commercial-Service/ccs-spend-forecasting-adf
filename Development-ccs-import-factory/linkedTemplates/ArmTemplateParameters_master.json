@@ -8,9 +8,6 @@
 		"Development-sql-connection_connectionString": {
 			"value": ""
 		},
-		"Development-storage-connection_properties_typeProperties_serviceEndpoint": {
-			"value": "https://developmentstorageccs.blob.core.windows.net"
-		},
 		"containerUri": {
 			"value": ""
 		},

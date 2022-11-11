@@ -11,10 +11,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Development-sql-connection'"
 		},
-		"Development-storage-connection_properties_typeProperties_serviceEndpoint": {
-			"type": "string",
-			"defaultValue": "https://developmentstorageccs.blob.core.windows.net"
-		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -44,9 +40,6 @@
 					},
 					"Development-sql-connection_connectionString": {
 						"value": "[parameters('Development-sql-connection_connectionString')]"
-					},
-					"Development-storage-connection_properties_typeProperties_serviceEndpoint": {
-						"value": "[parameters('Development-storage-connection_properties_typeProperties_serviceEndpoint')]"
 					}
 				}
 			},
