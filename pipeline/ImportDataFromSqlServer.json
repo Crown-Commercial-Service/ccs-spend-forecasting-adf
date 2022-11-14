@@ -115,11 +115,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"windowStart": {
-				"type": "String"
-			}
-		},
 		"annotations": []
 	}
 }
