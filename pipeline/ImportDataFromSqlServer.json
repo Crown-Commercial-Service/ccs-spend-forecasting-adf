@@ -18,7 +18,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT table_schema, table_name FROM INFORMATION_SCHEMA.TABLES\nWHERE table_type = 'BASE TABLE' AND table_schema in ('dbo');",
+						"sqlReaderQuery": "SELECT table_schema, table_name FROM INFORMATION_SCHEMA.TABLES\nWHERE table_type = 'BASE TABLE' AND table_schema in ('dbo', 'fore');",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -87,7 +87,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SourceDataset_dbo_tables",
+									"referenceName": "SourceDataset_SQLServer_tables",
 									"type": "DatasetReference",
 									"parameters": {
 										"table_name": {
