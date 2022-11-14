@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_t0r",
+	"name": "DestinationDataset_raw_container",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Development-storage-connection",

@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_x5w",
+	"name": "SourceDataset_dbo_tables",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Development-sql-connection",

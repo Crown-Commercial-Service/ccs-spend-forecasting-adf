@@ -87,7 +87,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SourceDataset_x5w",
+									"referenceName": "SourceDataset_dbo_tables",
 									"type": "DatasetReference",
 									"parameters": {
 										"table_name": {
@@ -99,7 +99,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DestinationDataset_t0r",
+									"referenceName": "DestinationDataset_raw_container",
 									"type": "DatasetReference",
 									"parameters": {
 										"cw_fileName": {

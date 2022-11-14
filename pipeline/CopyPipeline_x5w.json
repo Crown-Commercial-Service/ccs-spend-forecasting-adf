@@ -48,27 +48,14 @@
 										"type": "ParquetWriteSettings"
 									}
 								},
-								"enableStaging": false,
-								"validateDataConsistency": false
+								"enableStaging": false
 							},
 							"inputs": [
 								{
-									"referenceName": "SourceDataset_x5w",
+									"referenceName": "SourceDataset_dbo_tables",
 									"type": "DatasetReference",
 									"parameters": {
-										"cw_table": "@item().source.table"
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "DestinationDataset_x5w",
-									"type": "DatasetReference",
-									"parameters": {
-										"cw_fileName": {
-											"value": "@concat(item().destination.fileName, '/', formatDateTime(utcNow(), 'yyyy-MM-dd'))",
-											"type": "Expression"
-										}
+										"table_name": "@item().source.table"
 									}
 								}
 							]
