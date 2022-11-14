@@ -1,0 +1,29 @@
+{
+	"name": "DestinationDataset_t0r",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Development-storage-connection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_fileName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().cw_fileName",
+					"type": "Expression"
+				},
+				"folderPath": "customers",
+				"container": "azp-uks-spend-forecasting-development-raw"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
