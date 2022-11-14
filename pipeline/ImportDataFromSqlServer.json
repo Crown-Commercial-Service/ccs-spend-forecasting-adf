@@ -61,11 +61,11 @@
 							"userProperties": [
 								{
 									"name": "Source",
-									"value": "dbo.@{item().table_name}"
+									"value": "@{'<table_schema>'}.@{item().table_name}"
 								},
 								{
 									"name": "Destination",
-									"value": "azp-uks-spend-forecasting-development-raw/@{item().table_name}/@{concat(formatDateTime(utcNow(), 'yyyy-MM-dd'), '.parquet')}"
+									"value": "azp-uks-spend-forecasting-development-transformed/@{item().table_name}/@{concat(formatDateTime(utcNow(), 'yyyy/MM/dd/'), item().table_name, '.parquet')}"
 								}
 							],
 							"typeProperties": {
@@ -93,7 +93,8 @@
 										"table_name": {
 											"value": "@item().table_name",
 											"type": "Expression"
-										}
+										},
+										"table_schema": "@item().table_schema"
 									}
 								}
 							],
