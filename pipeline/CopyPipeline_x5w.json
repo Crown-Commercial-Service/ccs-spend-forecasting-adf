@@ -104,14 +104,6 @@
 						"destination": {
 							"fileName": "dboOpportunities.parquet"
 						}
-					},
-					{
-						"source": {
-							"table": "SpendAggregated"
-						},
-						"destination": {
-							"fileName": "dboSpendAggregated.parquet"
-						}
 					}
 				]
 			},
