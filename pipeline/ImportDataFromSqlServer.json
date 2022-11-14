@@ -65,7 +65,7 @@
 								},
 								{
 									"name": "Destination",
-									"value": "azp-uks-spend-forecasting-development-raw/@{item().table_name}/@{concat(formatDateTime(pipeline().parameters.windowStart,'yyyy'), '-', formatDateTime(pipeline().parameters.windowStart,'MM'), '-', formatDateTime(pipeline().parameters.windowStart,'dd'), '.parquet')}"
+									"value": "azp-uks-spend-forecasting-development-raw/@{item().table_name}/@{concat(formatDateTime(utcNow(), 'yyyy-MM-dd'), '.parquet')}"
 								}
 							],
 							"typeProperties": {
