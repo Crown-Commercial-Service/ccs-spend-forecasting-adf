@@ -1,0 +1,16 @@
+{
+	"name": "table_bld_MI_RM1056",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Development-sql-connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "bld",
+			"table": "MI_RM1056"
+		}
+	}
+}
