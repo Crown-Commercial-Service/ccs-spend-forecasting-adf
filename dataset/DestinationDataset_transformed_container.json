@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_raw_container",
+	"name": "DestinationDataset_transformed_container",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Development-storage-connection",
@@ -22,8 +22,11 @@
 					"value": "@dataset().cw_fileName",
 					"type": "Expression"
 				},
-				"folderPath": "@dataset().cw_tableName",
-				"container": "azp-uks-spend-forecasting-development-raw"
+				"folderPath": {
+					"value": "@dataset().cw_tableName",
+					"type": "Expression"
+				},
+				"container": "azp-uks-spend-forecasting-development-transformed"
 			},
 			"compressionCodec": "snappy"
 		},

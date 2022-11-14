@@ -99,11 +99,11 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DestinationDataset_raw_container",
+									"referenceName": "DestinationDataset_transformed_container",
 									"type": "DatasetReference",
 									"parameters": {
 										"cw_fileName": {
-											"value": "@concat(formatDateTime(utcNow(), 'yyyy-MM-dd'), '.parquet')",
+											"value": "@concat(formatDateTime(utcNow(), 'yyyy/MM/dd'), '.parquet')",
 											"type": "Expression"
 										},
 										"cw_tableName": {
