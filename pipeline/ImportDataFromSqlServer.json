@@ -18,12 +18,12 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT table_name FROM INFORMATION_SCHEMA.TABLES\nWHERE table_type = 'BASE TABLE' AND table_schema = 'dbo' AND table_name != 'SpendAggregated';",
+						"sqlReaderQuery": "SELECT table_schema, table_name FROM INFORMATION_SCHEMA.TABLES\nWHERE table_type = 'BASE TABLE' AND table_schema in ('dbo');",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "SourceDataset_SQLServer",
+						"referenceName": "SourceDataset_SQLServer_schema",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -102,11 +102,11 @@
 									"referenceName": "DestinationDataset_transformed_container",
 									"type": "DatasetReference",
 									"parameters": {
-										"cw_fileName": {
+										"fileName": {
 											"value": "@concat(formatDateTime(utcNow(), 'yyyy/MM/dd/'), item().table_name, '.parquet')",
 											"type": "Expression"
 										},
-										"cw_tableName": {
+										"tableName": {
 											"value": "@item().table_name",
 											"type": "Expression"
 										}

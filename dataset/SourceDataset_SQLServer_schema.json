@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_SQLServer",
+	"name": "SourceDataset_SQLServer_schema",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Development-sql-connection",

@@ -6,10 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"cw_fileName": {
+			"fileName": {
 				"type": "String"
 			},
-			"cw_tableName": {
+			"tableName": {
 				"type": "string"
 			}
 		},
@@ -19,11 +19,11 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@dataset().cw_fileName",
+					"value": "@dataset().fileName",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().cw_tableName",
+					"value": "@dataset().tableName",
 					"type": "Expression"
 				},
 				"container": "azp-uks-spend-forecasting-development-transformed"
