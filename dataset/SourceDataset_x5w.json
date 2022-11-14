@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"cw_table": {
+			"table_name": {
 				"type": "String"
 			}
 		},
@@ -16,7 +16,7 @@
 		"typeProperties": {
 			"schema": "dbo",
 			"table": {
-				"value": "@dataset().cw_table",
+				"value": "@dataset().table_name",
 				"type": "Expression"
 			}
 		}
