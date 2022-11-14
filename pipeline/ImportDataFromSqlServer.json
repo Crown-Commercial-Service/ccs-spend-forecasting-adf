@@ -4,68 +4,7 @@
 		"description": "Import data from sql server to blob storage",
 		"activities": [
 			{
-				"name": "Copy_t0r",
-				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Lookup all dbo tables",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [
-					{
-						"name": "Source",
-						"value": "dbo.Customers"
-					},
-					{
-						"name": "Destination",
-						"value": "azp-uks-spend-forecasting-development-raw/customers/@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}-@{formatDateTime(pipeline().parameters.windowStart,'MM')}-@{formatDateTime(pipeline().parameters.windowStart,'dd')}.parquet"
-					}
-				],
-				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"partitionOption": "None"
-					},
-					"sink": {
-						"type": "ParquetSink",
-						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
-						},
-						"formatSettings": {
-							"type": "ParquetWriteSettings"
-						}
-					},
-					"enableStaging": false,
-					"validateDataConsistency": false
-				},
-				"inputs": [
-					{
-						"referenceName": "SourceDataset_t0r",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DestinationDataset_t0r",
-						"type": "DatasetReference",
-						"parameters": {
-							"cw_fileName": "@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}-@{formatDateTime(pipeline().parameters.windowStart,'MM')}-@{formatDateTime(pipeline().parameters.windowStart,'dd')}.parquet"
-						}
-					}
-				]
-			},
-			{
-				"name": "Lookup all dbo tables",
+				"name": "List tables",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -79,14 +18,100 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT table_name FROM INFORMATION_SCHEMA.TABLES\nWHERE table_type = 'BASE TABLE' AND table_schema = 'dbo';",
+						"sqlReaderQuery": "SELECT table_name FROM INFORMATION_SCHEMA.TABLES\nWHERE table_type = 'BASE TABLE' AND table_schema = 'dbo' AND table_name != 'SpendAggregated';",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "SourceDataset_t0r",
+						"referenceName": "SourceDataset_SQLServer",
 						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "For each table",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "List tables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
 					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('List tables').output.value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Import table to raw container",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Source",
+									"value": "dbo.@{item().table_name}"
+								},
+								{
+									"name": "Destination",
+									"value": "azp-uks-spend-forecasting-development-raw/@{item().table_name}/@{concat(formatDateTime(pipeline().parameters.windowStart,'yyyy'), '-', formatDateTime(pipeline().parameters.windowStart,'MM'), '-', formatDateTime(pipeline().parameters.windowStart,'dd'), '.parquet')}"
+								}
+							],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
+								},
+								"enableStaging": false,
+								"validateDataConsistency": false
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset_x5w",
+									"type": "DatasetReference",
+									"parameters": {
+										"table_name": {
+											"value": "@item().table_name",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataset_t0r",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_fileName": "@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}-@{formatDateTime(pipeline().parameters.windowStart,'MM')}-@{formatDateTime(pipeline().parameters.windowStart,'dd')}.parquet",
+										"cw_tableName": {
+											"value": "@item().table_name",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
 				}
 			}
 		],
