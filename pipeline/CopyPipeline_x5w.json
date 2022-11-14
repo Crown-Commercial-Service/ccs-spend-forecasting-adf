@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach_x5w",
+				"name": "ForEach_table",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
@@ -66,7 +66,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"cw_fileName": {
-											"value": "@concat(pipeline().parameters.import_date, item().destination.fileName)",
+											"value": "@concat(item().destination.fileName, '/', formatDateTime(utcNow(), 'yyyy-MM-dd'))",
 											"type": "Expression"
 										}
 									}
@@ -107,9 +107,8 @@
 					}
 				]
 			},
-			"import_date": {
-				"type": "string",
-				"defaultValue": "@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}-@{formatDateTime(pipeline().parameters.windowStart,'MM')}-@{formatDateTime(pipeline().parameters.windowStart,'dd')}"
+			"windowStart": {
+				"type": "string"
 			}
 		},
 		"annotations": []
