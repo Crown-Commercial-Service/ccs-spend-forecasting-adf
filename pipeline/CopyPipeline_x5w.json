@@ -14,7 +14,7 @@
 					},
 					"activities": [
 						{
-							"name": "Copy_x5w",
+							"name": "copy_one_table",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -65,7 +65,10 @@
 									"referenceName": "DestinationDataset_x5w",
 									"type": "DatasetReference",
 									"parameters": {
-										"cw_fileName": "@item().destination.fileName"
+										"cw_fileName": {
+											"value": "@concat(pipeline().parameters.import_date, item().destination.fileName)",
+											"type": "Expression"
+										}
 									}
 								}
 							]
