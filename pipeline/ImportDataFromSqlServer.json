@@ -102,7 +102,10 @@
 									"referenceName": "DestinationDataset_t0r",
 									"type": "DatasetReference",
 									"parameters": {
-										"cw_fileName": "@{formatDateTime(pipeline().parameters.windowStart,'yyyy')}-@{formatDateTime(pipeline().parameters.windowStart,'MM')}-@{formatDateTime(pipeline().parameters.windowStart,'dd')}.parquet",
+										"cw_fileName": {
+											"value": "@concat(formatDateTime(utcNow(), 'yyyy-MM-dd'), '.parquet')",
+											"type": "Expression"
+										},
 										"cw_tableName": {
 											"value": "@item().table_name",
 											"type": "Expression"
