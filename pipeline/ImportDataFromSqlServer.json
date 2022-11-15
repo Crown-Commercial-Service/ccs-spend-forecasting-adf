@@ -104,7 +104,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"fileName": {
-											"value": "@concat(formatDateTime(utcNow(), 'year=yyyy/month=MM/day=dd/'), item().table_name, '.parquet')",
+											"value": "@concat(formatDateTime(utcNow(), '\"year=\"yyyy/\"month=\"MM/\"day=\"dd/'), item().table_name, '.parquet')",
 											"type": "Expression"
 										},
 										"tableName": {
