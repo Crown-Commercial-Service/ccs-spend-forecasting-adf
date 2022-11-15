@@ -1,0 +1,12 @@
+{
+	"name": "SourceDataset_SQLServer_schema",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Development-sql-connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
