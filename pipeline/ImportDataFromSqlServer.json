@@ -18,7 +18,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT table_schema, table_name FROM INFORMATION_SCHEMA.TABLES\nWHERE table_type = 'BASE TABLE' AND table_schema in ('dbo', 'fore', 'bld', 'cors', 'ppl', 'tech');",
+						"sqlReaderQuery": "SELECT table_schema, table_name FROM INFORMATION_SCHEMA.TABLES\nWHERE table_type = 'BASE TABLE' AND table_schema in ('dbo', 'fore');",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -104,7 +104,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"fileName": {
-											"value": "@concat(formatDateTime(utcNow(), 'yyyy/MM/dd/'), item().table_name, '.parquet')",
+											"value": "@concat(formatDateTime(utcNow(), 'year=yyyy/month=MM/day=dd/'), item().table_name, '.parquet')",
 											"type": "Expression"
 										},
 										"tableName": {
