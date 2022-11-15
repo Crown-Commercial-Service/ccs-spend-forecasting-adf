@@ -52,7 +52,7 @@
 						"referenceName": "DestinationDataset_transformed_container",
 						"type": "DatasetReference",
 						"parameters": {
-							"fileName": "@concat(formatDateTime(utcNow(), '\"year=\"yyyy/\"month=\"MM/\"day=\"dd/'), \"TransformedSpendData\", '.parquet')",
+							"fileName": "@concat(formatDateTime(utcNow(), '\"year=\"yyyy/\"month=\"MM/\"day=\"dd/'), 'TransformedSpendData', '.parquet')",
 							"tableName": "TransformedSpendData"
 						}
 					}
