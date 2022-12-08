@@ -2,7 +2,7 @@
 	"name": "SourceDataset_SQLServer_tables",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Development-sql-connection",
+			"referenceName": "DevelopmentSqlConnection2",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -17,7 +17,10 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "@dataset().table_schema",
+			"schema": {
+				"value": "@dataset().table_schema",
+				"type": "Expression"
+			},
 			"table": {
 				"value": "@dataset().table_name",
 				"type": "Expression"
