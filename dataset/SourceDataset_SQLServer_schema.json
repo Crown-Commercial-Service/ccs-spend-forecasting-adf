@@ -2,7 +2,7 @@
 	"name": "SourceDataset_SQLServer_schema",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Development-sql-connection",
+			"referenceName": "DevelopmentSqlConnection2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
