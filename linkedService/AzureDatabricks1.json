@@ -1,0 +1,13 @@
+{
+	"name": "AzureDatabricks1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-1405383277684028.8.azuredatabricks.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/b1416642-757f-47a4-9992-7ab7a097f641/resourceGroups/AzP-UKS-Spend-Forecasting/providers/Microsoft.Databricks/workspaces/AzP-UKS-Spend-Forecasting-Development-databricks",
+			"existingClusterId": "1219-113316-rdmnepx8"
+		}
+	}
+}
