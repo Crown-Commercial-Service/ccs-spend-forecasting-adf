@@ -21,6 +21,10 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "FetchSpendDataAndAddColumn",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			},
