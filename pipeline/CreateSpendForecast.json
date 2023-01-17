@@ -76,7 +76,8 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"pythonFile": "dbfs:/pipeline/jobs/get_active_combinations.py"
+					"pythonFile": "dbfs:/pipeline/jobs/get_active_combinations.py",
+					"parameters": []
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
@@ -109,7 +110,8 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"pythonFile": "dbfs:/pipeline/jobs/run_forecast_and_output_to_blob.py"
+					"pythonFile": "dbfs:/pipeline/jobs/run_forecast_and_output_to_blob.py",
+					"parameters": []
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
