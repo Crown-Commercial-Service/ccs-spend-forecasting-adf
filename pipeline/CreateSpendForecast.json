@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "Fill missing months in data",
+				"name": "Fill missing months with zeroes",
 				"type": "DatabricksSparkPython",
 				"dependsOn": [
 					{
@@ -57,7 +57,7 @@
 				}
 			},
 			{
-				"name": "Filter Active Categories",
+				"name": "Filter Active Combinations",
 				"type": "DatabricksSparkPython",
 				"dependsOn": [
 					{
@@ -89,13 +89,13 @@
 				"type": "DatabricksSparkPython",
 				"dependsOn": [
 					{
-						"activity": "Filter Active Categories",
+						"activity": "Filter Active Combinations",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "Fill missing months in data",
+						"activity": "Fill missing months with zeroes",
 						"dependencyConditions": [
 							"Succeeded"
 						]
