@@ -48,7 +48,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"pythonFile": "dbfs:/pipeline/main.py",
+					"pythonFile": "dbfs:/pipeline/jobs/fill_missing_months.py",
 					"parameters": []
 				},
 				"linkedServiceName": {
